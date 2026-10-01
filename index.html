@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A&W Rembud | Usługi Wykończeniowe Poznań</title>
+
+  <meta
+    name="description"
+    content="A&W Rembud – usługi remontowe i wykończeniowe w Poznaniu. Skontaktuj się i zapytaj o realizację."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f3ef;
+      color: #202020;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAV */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 7%;
+
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #e3e0da;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 950;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #b07a3c;
+    }
+
+    .nav-call {
+      background: #202020;
+      color: white;
+
+      padding: 10px 18px;
+      border-radius: 7px;
+
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .nav-call:hover {
+      background: #b07a3c;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 135px 7% 85px;
+
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(176, 122, 60, 0.15),
+          transparent 34%
+        ),
+        linear-gradient(135deg, #ffffff, #eeeae3);
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+
+      color: #a66d30;
+
+      border: 1px solid #b07a3c;
+
+      padding: 7px 14px;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      margin-bottom: 20px;
+
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 82px);
+
+      line-height: 0.95;
+
+      text-transform: uppercase;
+
+      margin-bottom: 27px;
+
+      font-weight: 950;
+    }
+
+    h1 span {
+      color: #b07a3c;
+    }
+
+    .hero p {
+      color: #62605c;
+
+      font-size: 19px;
+
+      max-width: 690px;
+
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 15px 25px;
+
+      border-radius: 7px;
+
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #202020;
+      color: white;
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-primary:hover {
+      background: #b07a3c;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: white;
+
+      border: 1px solid #d8d3cb;
+    }
+
+    .btn-secondary:hover {
+      border-color: #b07a3c;
+      transform: translateY(-3px);
+    }
+
+    /* DECORATION */
+
+    .shape {
+      position: absolute;
+
+      right: -130px;
+      bottom: -170px;
+
+      width: 560px;
+      height: 560px;
+
+      border: 80px solid #202020;
+
+      opacity: 0.045;
+
+      transform: rotate(20deg);
+    }
+
+    .shape::after {
+      content: "";
+
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 45px solid #b07a3c;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #b07a3c;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: #77736d;
+
+      margin-top: 10px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #202020;
+      color: white;
+    }
+
+    .services .section-title p {
+      color: #a7a39e;
+    }
+
+    .service-grid {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .service {
+      background: #292929;
+
+      border: 1px solid #383838;
+
+      border-radius: 14px;
+
+      padding: 28px;
+
+      transition: 0.25s;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+
+      border-color: #b07a3c;
+    }
+
+    .service-icon {
+      font-size: 35px;
+
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: #aaa6a1;
+
+      font-size: 15px;
+    }
+
+    /* PROCESS */
+
+    .process {
+      max-width: 1050px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .process-box {
+      background: white;
+
+      border: 1px solid #e1ddd6;
+
+      border-radius: 14px;
+
+      padding: 30px;
+
+      text-align: center;
+    }
+
+    .number {
+      width: 55px;
+      height: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 auto 18px;
+
+      background: #b07a3c;
+
+      color: white;
+
+      border-radius: 50%;
+
+      font-size: 22px;
+
+      font-weight: 950;
+    }
+
+    .process-box p {
+      color: #77736d;
+
+      margin-top: 8px;
+
+      font-size: 15px;
+    }
+
+    /* WHY */
+
+    .why {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .why-box {
+      background: white;
+
+      border: 1px solid #e1ddd6;
+
+      border-radius: 13px;
+
+      padding: 25px 15px;
+
+      text-align: center;
+    }
+
+    .why-box strong {
+      display: block;
+
+      font-size: 19px;
+
+      margin-bottom: 7px;
+    }
+
+    .why-box p {
+      color: #77736d;
+
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+
+      background: #b07a3c;
+
+      color: white;
+    }
+
+    .contact h2 {
+      font-size: 45px;
+
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      margin-bottom: 20px;
+
+      opacity: 0.9;
+    }
+
+    .phone {
+      display: block;
+
+      font-size: clamp(30px, 5vw, 55px);
+
+      font-weight: 950;
+
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      display: inline-block;
+
+      background: #202020;
+
+      color: white;
+
+      padding: 15px 25px;
+
+      border-radius: 7px;
+
+      font-weight: 900;
+
+      transition: 0.2s;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px);
+
+      background: #111;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 7%;
+
+      text-align: center;
+
+      background: #151515;
+
+      color: #777;
+
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 15px 5%;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .nav-call {
+        padding: 8px 12px;
+
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 120px 6% 70px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .why {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
+
+      .contact h2 {
+        font-size: 34px;
+      }
+
+      .shape {
+        width: 350px;
+        height: 350px;
+
+        border-width: 50px;
+
+        right: -170px;
+        bottom: -100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .why {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <div class="logo">
+      A&W <span>REMBUD</span>
+    </div>
+
+    <a
+      class="nav-call"
+      href="tel:+48669760072"
+    >
+      📞 ZADZWOŃ
+    </a>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🏠 Usługi remontowe i wykończeniowe
+      </div>
+
+      <h1>
+        Twój remont.
+        <br>
+        <span>Nasza realizacja.</span>
+      </h1>
+
+      <p>
+        Usługi remontowe i wykończeniowe w Poznaniu.
+        Nowoczesna realizacja, estetyczne wykończenie
+        i podejście dopasowane do potrzeb klienta.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          class="btn btn-primary"
+          href="tel:+48669760072"
+        >
+          📞 ZADZWOŃ
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="#uslugi"
+        >
+          🛠️ ZOBACZ USŁUGI
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="shape"></div>
+
+  </header>
+
+
+  <!-- SERVICES -->
+
+  <section
+    class="services"
+    id="uslugi"
+  >
+
+    <div class="section-title">
+
+      <small>Oferta</small>
+
+      <h2>Usługi remontowe i wykończeniowe</h2>
+
+      <p>
+        Zakres prac ustalany indywidualnie z klientem.
+      </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+      <div class="service">
+
+        <div class="service-icon">
+          🧱
+        </div>
+
+        <h3>Prace remontowe</h3>
+
+        <p>
+          Realizacja prac remontowych dopasowanych
+          do zakresu konkretnego zlecenia.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">
+          🎨
+        </div>
+
+        <h3>Wykończenia</h3>
+
+        <p>
+          Prace związane z wykończeniem
+          i przygotowaniem wnętrz.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">
+          🏠
+        </div>
+
+        <h3>Remonty wnętrz</h3>
+
+        <p>
+          Pomoc przy odświeżaniu i zmianie
+          wyglądu pomieszczeń.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">
+          🔨
+        </div>
+
+        <h3>Prace budowlane</h3>
+
+        <p>
+          Wykonywanie uzgodnionych prac
+          związanych z remontem.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">
+          📐
+        </div>
+
+        <h3>Indywidualne podejście</h3>
+
+        <p>
+          Zakres prac dopasowany do potrzeb
+          i oczekiwań klienta.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">
+          📞
+        </div>
+
+        <h3>Wycena i kontakt</h3>
+
+        <p>
+          Skontaktuj się telefonicznie,
+          aby omówić swoje zlecenie.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="section-title">
+
+      <small>Jak działamy?</small>
+
+      <h2>Prosty proces realizacji</h2>
+
+      <p>
+        Od pierwszego kontaktu do zakończenia prac.
+      </p>
+
+    </div>
+
+
+    <div class="process">
+
+      <div class="process-box">
+
+        <div class="number">
+          1
+        </div>
+
+        <h3>Kontakt</h3>
+
+        <p>
+          Opowiedz o planowanym remoncie
+          i zakresie prac.
+        </p>
+
+      </div>
+
+
+      <div class="process-box">
+
+        <div class="number">
+          2
+        </div>
+
+        <h3>Ustalenia</h3>
+
+        <p>
+          Omawiamy szczegóły oraz zakres
+          potrzebnych prac.
+        </p>
+
+      </div>
+
+
+      <div class="process-box">
+
+        <div class="number">
+          3
+        </div>
+
+        <h3>Realizacja</h3>
+
+        <p>
+          Po ustaleniu szczegółów można
+          przejść do realizacji zlecenia.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY -->
+
+  <section>
+
+    <div class="section-title">
+
+      <small>A&W Rembud</small>
+
+      <h2>Co jest ważne przy remoncie?</h2>
+
+    </div>
+
+
+    <div class="why">
+
+      <div class="why-box">
+
+        <strong>🏠 Estetyka</strong>
+
+        <p>
+          Dbałość o końcowy wygląd.
+        </p>
+
+      </div>
+
+
+      <div class="why-box">
+
+        <strong>📐 Dokładność</strong>
+
+        <p>
+          Odpowiednie przygotowanie prac.
+        </p>
+
+      </div>
+
+
+      <div class="why-box">
+
+        <strong>🤝 Kontakt</strong>
+
+        <p>
+          Ustalenie zakresu przed rozpoczęciem.
+        </p>
+
+      </div>
+
+
+      <div class="why-box">
+
+        <strong>📍 Poznań</strong>
+
+        <p>
+          Usługi na terenie Poznania.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact">
+
+    <h2>
+      Planujesz remont?
+    </h2>
+
+    <p>
+      Skontaktuj się i omów swoje zlecenie.
+    </p>
+
+    <a
+      class="phone"
+      href="tel:+48669760072"
+    >
+      669 760 072
+    </a>
+
+    <a
+      class="contact-button"
+      href="tel:+48669760072"
+    >
+      📞 ZADZWOŃ TERAZ
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <strong>
+      A&W Rembud
+    </strong>
+
+    <br>
+
+    Poznań
+
+    <br><br>
+
+    © 2026 — Demo strony internetowej
+
+  </footer>
+
+</body>
+</html>
